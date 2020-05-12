@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pre-push": "ng build --prod && surge -p dist/loputoo --domain loputoo-stage.surge.sh"
   },
   "private": true,
   "dependencies": {
@@ -55,8 +56,7 @@
     "surge": "^0.21.3",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "^3.5.3",
-    "git": { "scripts": { "pre-push": "surge --project ./ --domain gitloputoo-stage.surge.sh/" } }
+    "typescript": "^3.5.3"
   }
 
 }
