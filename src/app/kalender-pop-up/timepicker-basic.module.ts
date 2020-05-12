@@ -6,15 +6,20 @@ import { MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepicke
   MatFormFieldModule, MatRadioModule, MatSelectModule, MatSliderModule, 
   MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
   MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+  
 
 
 import { KalenderPopUpComponent } from './kalender-pop-up.component';
+
 
 @NgModule({
   imports: [BrowserModule, FormsModule, NgbModule,MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, 
     MatFormFieldModule, MatRadioModule, MatSelectModule, MatSliderModule, 
     MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
-    MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, ReactiveFormsModule
+    MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, ReactiveFormsModule,
+    BrowserAnimationsModule,
+
   ],
   declarations: [KalenderPopUpComponent],
   exports: [KalenderPopUpComponent],

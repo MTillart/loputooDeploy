@@ -5,6 +5,7 @@ import { To_Do } from '../_models/to_do';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Time } from '../_models/time';
 import { group } from 'console';
+import { CalendarDate } from '../_models/calendarDate';
 
 @Component({
   selector: 'app-kalender-pop-up',
@@ -18,13 +19,15 @@ export class KalenderPopUpComponent implements OnInit {
   dataArray: Array<To_Do>;
   time = {hour: 13, minute: 30};
 
-  theDate: Date;
-  theHour: number;
-  theMinutes: number;
+  theDate: Date = new Date();
+  theHour: number = 13;
+  theMinutes: number = 30;
 
   eventDate: any;
   eventTime: any;
   testDate: any;
+  selectedDate: Date;
+  dateToSend: CalendarDate;
 
   datesToHighlight = ["2020-03-22T18:30:00.000Z", "2020-03-10T18:30:00.000Z", "2020-03-05T18:30:00.000Z", "2020-03-28T18:30:00.000Z", "2020-03-14T18:30:00.000Z", "2020-03-31T18:30:00.000Z", "2020-03-08T18:30:00.000Z", "2020-03-15T18:30:00.000Z"];
 
@@ -41,43 +44,33 @@ export class KalenderPopUpComponent implements OnInit {
 }
   ngOnInit() {
 
-    this.form = this.fb.group({
-      task: ['', Validators.required],
-      eventDate: ['', Validators.required],
-    })
-
+    // this.form = this.fb.group({
+    //   task: ['', Validators.required],
+    //   eventDate: ['', Validators.required],
+    // })
+    this.form = new FormGroup({
+      task: new FormControl,
+      eventDate: new FormControl,
+      });
     
-  }
+  };
 
   save() {
-    console.log("saving");
-    if (!this.theDate){
-      console.log("No date selected");
-      this.theDate = new Date();
-      console.log(this.theDate);
+    const time = this.theHour+":"+this.theMinutes;
+    console.log(time);
 
-      
-     
-    }else if (!this.theHour ){
-      console.log("No hour selected");
-      this.theHour = this.time.hour;
-    }else if (!this.theMinutes){
-      console.log("No time selected");
-      this.theMinutes = this.time.minute;
-    }else {
-      console.log("All selected");
-      
-    }
+    // if(this.theDate == null || undefined){
+    //   this.theDate = new Date();
+    // }
+   
 
-    console.log("adding time...");
+    this.dateToSend = new CalendarDate(
+      this.theDate,
+      this.form.get('task').value,
+      time
+    )
     
-
-    this.theDate.setHours(this.theHour);
-    this.theDate.setMinutes(this.theMinutes);
-
-    this.form.get('eventDate').setValue(this.theDate);
-
-    console.log(this.form.value);
+    console.log(this.dateToSend);
 
 
     this.dialogRef.close(this.form.value);
@@ -89,9 +82,6 @@ export class KalenderPopUpComponent implements OnInit {
       this.dialogRef.close();
   }
 
-  onSelect(event){
-    console.log(event);
-  }
 
   dateClass() {
     return (date: Date): MatCalendarCellCssClasses => {
@@ -105,7 +95,10 @@ export class KalenderPopUpComponent implements OnInit {
 
   getSelectedDate(event){
     //event.setHour(12);
+
+
     this.theDate = event;
+    
     //this.theDate.setHours(5);
 
     //this.form.get('eventDate').setValue(event);
@@ -113,7 +106,8 @@ export class KalenderPopUpComponent implements OnInit {
   logTime(event){
     this.theHour = event.hour;
     this.theMinutes = event.minute;
-    
+
   }
 
 }
+

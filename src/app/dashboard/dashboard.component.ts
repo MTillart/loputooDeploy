@@ -19,13 +19,15 @@ export class DashboardComponent implements OnInit {
   isAddTask: boolean;
   form: FormGroup;
 
+  newTask: To_Do;
+
 
 
   dataSource1 = DASH_DATA1;
   calendarData: CalendarDate[];
 
   newCalendarDates;
-  
+
   columnsToDisplay = ['Task'];
 
   constructor(
@@ -39,113 +41,38 @@ export class DashboardComponent implements OnInit {
 
     //this.sortArray()
     console.log("The sorted dates are: ");
-
-    this.calendarData = calenderDates;
-    console.log(calenderDates);
     //this.sortObjects(this.calendarData);
 
-    this.isAddTask= false;
+    this.isAddTask = false;
 
     this.form = this.fb.group({
       toDoTask: ['', Validators.required],
 
     });
-
-
-
-
-
   }
   get toDoTask() { return this.form.get('toDoTask'); }
 
-  openAddTask(){
-    this.isAddTask=!this.isAddTask;
+  openAddTask() {
+    this.isAddTask = !this.isAddTask;
 
-    
+
   }
-  saveAddTask(){
-    this.form; 
+  saveAddTask() {
     this.form.get("toDoTask").value;
+    this.newTask = {
+      Task: this.form.get("toDoTask").value,
+      isDone: false
+    }
+    this.isAddTask = !this.isAddTask;
+    console.log(this.newTask);
+
     // send API CALL
 
   }
-  closeAddTask(){
-    this.isAddTask=!this.isAddTask;
+  closeAddTask() {
+    this.isAddTask = !this.isAddTask;
+    this.form.reset();
   }
-
-  // public sortArray(): CalendarDate[] {
-
-  //   // Sort the array by date acending (jan->dec)
-  //   console.log("Sorting array");
-
-  //   return calenderDates.sort((a, b) => {
-  //     return <any>new Date(a.calDate) - <any>new Date(b.calDate);
-  //   });
-  // }
-
-  // sortObjects(array) {
-  //   this.newCalendarDates = [];
-  //   console.log(this.newCalendarDates[0]);
-
-
-
-  //   array.forEach((element, i = 0) => {
-
-
-  //     // console.log(i);
-  //     // console.log(element.Task);
-
-  //     // if (this.newCalendarDates[0] == undefined) {
-  //     //   console.log("UNDEFINED");
-  //     //   const obj = new newCalDate(
-  //     //     element.calDate,
-  //     //     element.Task,
-  //     //     element.Time
-  //     //   );
-  //     //   console.log("OBJECT " + obj.eventDate);
-  //     //   console.log("OBJECT " + obj.desc[i].task);
-
-  //     //   this.newCalendarDates.push(obj);
-
-  //     // } else if (this.newCalendarDates.filter(o => o.eventDate === "element.calDate")) {
-  //     //   //console.log("NCD date: " + this.newCalendarDates[0].calDate);
-
-
-  //     //   console.log("Ther was a similar object" + element.calDate);
-  //     //   var show = this.newCalendarDates.filter(o => o.eventDate == element.calDate);
-
-  //     //   console.log("SHOW: " + show);
-
-  //     // } else {
-
-
-
-
-  //     //   // console.log("NCD date: " + this.newCalendarDates[i].eventDate);
-  //     //   const obj = new newCalDate(
-  //     //     element.calDate,
-  //     //     element.Task,
-  //     //     element.Time
-  //     //   );
-  //     //   console.log("OBJECT " + obj.desc[0].task);
-
-
-  //     //   this.newCalendarDates.push(obj);
-
-  //     // }
-  //     // i++;
-
-
-  //   });
-  //   console.log(this.newCalendarDates);
-
-
-
-
-
-  // }
-
-
 
   // Open pop-up and configur it. Send data
   openDialog() {
@@ -168,51 +95,7 @@ export class DashboardComponent implements OnInit {
     this.dialog.open(KalenderPopUpComponent, dialogConfig);
   }
 
-}
-export class newCalDate {
 
-  user: {
-    name: string,
-    email: string,
-    password: string,
-    clients: [
-      {
-        name: string,
-        email: string,
-        etc: string
-      }
-    ],
-    calender: [
-      {
-        eventDate: Date;
-        desc: [
-          {
-            task: string,
-            time: string
-          }
-        ]
-      },{
-        eventDate: Date;
-        desc: [
-          {
-            task: string,
-            time: string
-          }
-        ]
-      }
-    ]
-  }
-
-
-
-
-  eventDate: Date;
-  desc: [
-    {
-      task: string,
-      time: string
-    }
-  ]
 
   // constructor(
   //   newDate: Date,
@@ -228,36 +111,29 @@ export class newCalDate {
 
   // }
 
-  addDesc(desc) {
-    this.desc.push(desc);
-    console.log("ADDDESCK func: added a task");
-
-
-  }
-
 }
-const calenderDates: CalendarDate[] = [
-  {
-    calDate: new Date,
-    Task: "Comand the Normandy",
-    Time: "08:00"
-  },
-  {
-    calDate: new Date(2020, 0o0, 13),
-    Task: "Shoot disks with Vak",
-    Time: "11:50"
-  },
-  {
-    calDate: new Date(2020, 0o5, 10),
-    Task: "Protheans art",
-    Time: "15:15"
-  },
-  {
-    calDate: new Date(2020, 0o5, 10),
-    Task: "Poems with Wrex",
-    Time: "8.30"
-  },
-]
+// const calenderDates: CalendarDate[] = [
+//   {
+//     calDate: new Date,
+//     Task: "Comand the Normandy",
+//     Time: "08:00"
+//   },
+//   {
+//     calDate: new Date(2020, 0o0, 13),
+//     Task: "Shoot disks with Vak",
+//     Time: "11:50"
+//   },
+//   {
+//     calDate: new Date(2020, 0o5, 10),
+//     Task: "Protheans art",
+//     Time: "15:15"
+//   },
+//   {
+//     calDate: new Date(2020, 0o5, 10),
+//     Task: "Poems with Wrex",
+//     Time: "8.30"
+//   },
+// ]
 
 
 export interface To_Do1 {

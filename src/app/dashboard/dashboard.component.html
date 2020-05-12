@@ -7,15 +7,15 @@
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td fxLayout="row" fxLayoutAlign="start center">
           <form [formGroup]="form">
-          <mat-form-field *ngIf="isAddTask" >
-            <input matInput placeholder="Ülesanne" formControlName="toDoTask" id="toDoTask" name="toDoTask" required>
-            <mat-error>Täida väli</mat-error>
-          </mat-form-field>
-        </form>
+            <mat-form-field *ngIf="isAddTask">
+              <input matInput placeholder="Ülesanne" formControlName="toDoTask" id="toDoTask" name="toDoTask" required>
+              <mat-error>Täida väli</mat-error>
+            </mat-form-field>
+          </form>
           <mat-icon *ngIf="!isAddTask" (click)="openAddTask()" class="icon">add</mat-icon>
-          <mat-icon color="accent" *ngIf="isAddTask" (click)="openAddTask()" class="icon">save</mat-icon>
+          <mat-icon color="accent" *ngIf="isAddTask" (click)="saveAddTask()" class="icon">save</mat-icon>
           <mat-icon color="accent" *ngIf="isAddTask" (click)="closeAddTask()" class="icon">clear</mat-icon>
         </td>
       </tr>
@@ -24,6 +24,10 @@
           <mat-checkbox class="checkBox" [checked]="item.isDone"></mat-checkbox>
           {{item.Task}}
 
+        </td>
+        <td>
+          <mat-icon class="edit">edit</mat-icon>
+          <mat-icon class="delete">close</mat-icon>
         </td>
       </tr>
 
@@ -39,7 +43,13 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>
+          <mat-icon (click)="openDialog()" class="icon">add</mat-icon>
+        </td>
+      </tr>
       <tr *ngFor="let item of calendarData">
+
 
         <td>
           <h5>{{item.eventDate | date:'MMMM d'}}</h5>
@@ -60,7 +70,7 @@
     <tbody>
       <tr *ngFor="">
         <td>
-          
+
         </td>
       </tr>
 

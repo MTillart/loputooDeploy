@@ -33,9 +33,6 @@ export class IsikudComponent implements OnInit {
         
       }
       );
-    
-    console.log(this.clientsData);
-    
   }
 
   openAddClient() {

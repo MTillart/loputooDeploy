@@ -36,6 +36,7 @@ table {
     border-bottom-width: 0;
     color: var(--text-primary);
     td {
+      display: inline-flex;
       padding-left: 15px;
     }
   }
@@ -50,7 +51,7 @@ table {
 mat-icon {
   margin: 0;
   padding: 0;
-  font-size: 30px;
+  font-size: 24px;
 }
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
   border-color: var(--text-grey);
@@ -59,4 +60,15 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   width: 20px;
   height: 20px;
 }
+.delete{
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+}
+.edit{
+  color: var(--valid);
+  font-size: 16px;
+  cursor: pointer;
+}
+
 

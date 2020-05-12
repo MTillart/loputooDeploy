@@ -7,12 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pre-push": "ng build --prod && surge -p dist/loputoo --domain loputoo-stage.surge.sh"
   },
-  "pre-push": [
-    "ng build --prod",
-    "surge -p dist/loputoo --domain loputoo-stage.surge.sh"
-  ],
+  
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",

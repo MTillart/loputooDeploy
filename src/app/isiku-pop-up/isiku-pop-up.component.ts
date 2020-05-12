@@ -43,15 +43,29 @@ export class IsikuPopUpComponent implements OnInit {
   }
   deleteClient(clientId) {
 
-    console.log("ID: "+clientId);
-    
-    this.clientService.deleteClient(clientId)
+    if (confirm("Kas soovid kliendi andmed kustutada?")) {
+      console.log("kustutan kliendi");
+      this.clientService.deleteClient(clientId)
       .subscribe(
         ()=> console.log(`Client with id = ${clientId} deleted`),
-        (err) => console.log(err)   
-                
+        (err) => console.log(err)                   
       );
     this.dialogRef.close();
+      
+    } else {
+      console.log("klient ei kustutaud");
+    }
+    
+    
+    console.log("ID: "+clientId);
+    
+    // this.clientService.deleteClient(clientId)
+    //   .subscribe(
+    //     ()=> console.log(`Client with id = ${clientId} deleted`),
+    //     (err) => console.log(err)   
+                
+    //   );
+    //this.dialogRef.close();
   }
   changeClient(clientId){
     
