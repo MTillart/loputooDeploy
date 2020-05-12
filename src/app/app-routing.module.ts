@@ -8,7 +8,6 @@ import { ToimikudComponent } from './toimikud/toimikud.component';
 import { AuthGuard } from './_helpers/_auth.guard';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 

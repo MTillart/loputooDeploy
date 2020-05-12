@@ -17,7 +17,7 @@ import { IsikudComponent } from './isikud/isikud.component';
 import { DokumendidComponent } from './dokumendid/dokumendid.component';
 import { ToimikudComponent } from './toimikud/toimikud.component';
 import { AjaarvestusComponent } from './ajaarvestus/ajaarvestus.component';
-import { KalenderPopUpComponent } from './kalender-pop-up/kalender-pop-up.component';
+//import { KalenderPopUpComponent } from './kalender-pop-up/kalender-pop-up.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -30,7 +30,7 @@ import { IsikuPopUpComponent } from './isiku-pop-up/isiku-pop-up.component';
 import { LisaIsikPopUpComponent } from './lisa-isik-pop-up/lisa-isik-pop-up.component';
 import { TokenInterceptor } from './_services/interceptor.service';
 import { TimerComponent } from './timer/timer.component';
-//import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.module'
+import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.module'
 
 
 
@@ -45,7 +45,7 @@ import { TimerComponent } from './timer/timer.component';
     DokumendidComponent,
     ToimikudComponent,
     AjaarvestusComponent,
-    KalenderPopUpComponent,
+    //KalenderPopUpComponent,
     LoginComponent,
     RegisterComponent,
     IsikuPopUpComponent,
@@ -53,7 +53,7 @@ import { TimerComponent } from './timer/timer.component';
     TimerComponent,
   ],
   entryComponents: [
-    KalenderPopUpComponent,
+    //KalenderPopUpComponent,
     IsikuPopUpComponent,
     LisaIsikPopUpComponent,
   ],
@@ -85,7 +85,7 @@ import { TimerComponent } from './timer/timer.component';
     
     HttpClientModule,
     NgbModule,
-    //NgbdTimepickerBasicModule
+    NgbdTimepickerBasicModule
 
   ],
   providers: [

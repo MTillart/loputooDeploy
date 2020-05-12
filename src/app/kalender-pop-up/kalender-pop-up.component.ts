@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef, MatCalendarCellCssClasses} from "@angular/material";
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { To_Do } from '../_models/to_do';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Time } from '../_models/time';
+import { group } from 'console';
 
 @Component({
   selector: 'app-kalender-pop-up',
@@ -32,10 +33,7 @@ export class KalenderPopUpComponent implements OnInit {
     private dialogRef: MatDialogRef<KalenderPopUpComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
 
-      this.form = new FormGroup({
-      task: new FormControl(),
-      eventDate: new FormControl(new  Date()),
-    })
+      
 
       this.dataArray = data;
       //console.log(this.dataArray);
@@ -43,6 +41,10 @@ export class KalenderPopUpComponent implements OnInit {
 }
   ngOnInit() {
 
+    this.form = this.fb.group({
+      task: ['', Validators.required],
+      eventDate: ['', Validators.required],
+    })
 
     
   }

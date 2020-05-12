@@ -2,34 +2,34 @@
 <h3 mat-dialog-title>Sündmuse sisestamine</h3>
 
 <div mat-dialog-content>
- <!-- <form formGroup="form" action=""> -->
+    <form [formGroup]="form">
 
 
-    <!-- <mat-form-field> -->
-        <!-- <input matInput formControlName="task" class="placeholder" required placeholder="Sisesta sündmus"> -->
-        <!-- <ul *ngFor="let item of dataArray">
-        <li>{{item.Task}}</li>
-    </ul> -->
-    <!-- </mat-form-field> -->
+        <mat-form-field>
+            <input matInput formControlName="task" class="placeholder" required placeholder="Sisesta sündmus">
+            <ul *ngFor="let item of dataArray">
+                <li>{{item.Task}}</li>
+            </ul>
+        </mat-form-field>
 
 
-    <!-- <div class="dialog_container">
-        <div class="calendar-wrapper">
-            <mat-calendar dateClass="dateClass()" selected="form.get('eventDate').value"
-                (selectedChange)="getSelectedDate($event)" #calendar (selected)="selectedDate">
-            </mat-calendar>
+        <div class="dialog_container">
+            <div class="calendar-wrapper">
+            <mat-calendar [dateClass]="dateClass()" [selected]="form.get('eventDate').value"
+                    (selectedChange)="getSelectedDate($event)" #calendar>
+                </mat-calendar>
+            </div>
+
+            <div class="timepicker">
+                <ngb-timepicker ngModel="time" (ngModelChange)="logTime($event)"></ngb-timepicker>
+            </div>
         </div>
-
-        <div class="timepicker">
-            <ngb-timepicker ngModel="time" (ngModelChange)="logTime($event)"></ngb-timepicker>
-        </div>
-    </div> -->
- <!-- </form> -->
+    </form>
 
 </div>
 <div mat-dialog-actions>
 
     <button class="mat-raised-button" (click)="close()">Close</button>
-    <!-- <button [disabled]="!form.dirty" class="mat-raised-button mat-primary" (click)="save()">Save</button> -->
+    <button [disabled]="!form.dirty" class="mat-raised-button mat-primary" (click)="save()">Save</button>
     <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
 </div>
