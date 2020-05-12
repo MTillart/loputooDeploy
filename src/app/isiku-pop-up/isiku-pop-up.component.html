@@ -1,0 +1,40 @@
+<mat-dialog-content>
+
+
+<div class="container" fxLayout="row">
+<h3 class="close addMargin" (click)="close()">X</h3>    
+    <div class="info_sidebar">
+        <ul class="details">
+            <li>{{dataPerson.name}}</li>
+            <li>{{dataPerson.idCode}}</li>
+            <li>{{dataPerson.phone}}</li>
+            <li>{{dataPerson.email}}</li>
+            <li>{{dataPerson.company}}</li>
+            <li>{{dataPerson.address}}</li>
+        </ul>
+
+    </div>
+    <div class="main_panel" fxLayout="column">
+        <h5>Avatud toimikud<mat-icon color="accent">add_box</mat-icon>
+        </h5>
+        <ul class="open_cases">
+            <li>Toimik 1</li>
+            <li>Liiklustrahv</li>
+            <li>Toimik 13</li>
+        </ul>
+        <div class="bottom_class">
+        <h5>Suletud toimikud</h5>
+        <ul class="closed_cases">
+            <li>Toimik 22</li>
+            <li>Liiklustrahv#74</li>
+            <li>Toimik 13</li>
+        </ul>
+    </div>
+</div>
+
+</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+<button mat-button (click)=changeClient(dataPerson._id)>Muuda andmeid</button>
+<button mat-button (click)=deleteClient(dataPerson._id)>Kustuta klient</button>
+</mat-dialog-actions>

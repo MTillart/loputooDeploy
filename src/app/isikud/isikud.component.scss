@@ -1,0 +1,35 @@
+.client_container {
+    //display: inline-block;
+    height: 600px;
+    background-color: var(--background-secondary);
+    //border: 1px solid var(--grid-primary);
+    border-radius: 5px;
+    border-right: 1px solid var(--grid-primary);
+    margin: 30px;
+    
+    mat-icon{
+        margin: 10px 0px 0 50px ;
+        cursor: pointer;
+    }
+}
+table {
+    margin: 0 50px 10px 50px;
+    border: 1px solid var(--grid-primary);
+    border-collapse: collapse;
+    width: 80%;
+}
+table td {
+    color:var(--text-primary);
+    border-left: 1px solid var(--grid-primary);
+    padding-left: 10px;
+}
+.clientId {
+    display: flex;
+    justify-content: center;
+}
+.clientName:hover {
+    cursor: pointer;
+    color: var(--text-secondary);
+    //font-weight: bold;
+    text-shadow: var(--background-hover-shadow);;
+}

@@ -1,0 +1,16 @@
+
+<div class="client_container">
+    <mat-icon (click)=openAddClient() color="accent">add_box</mat-icon>
+    <table>
+        <tbody>
+           <tr fxLayout="row" fxLayoutGap="5px" *ngFor="let item of clientsData"> 
+                
+                <td fxFlex="30" class="clientName" (click)="openClienView(item._id)">{{item.name}}</td>
+                <td fxFlex="26">{{item.phone}}</td>
+                <td fxFlex="15">{{item.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <button (click)= getClients()>KLIENDID</button> -->
+</div>
+

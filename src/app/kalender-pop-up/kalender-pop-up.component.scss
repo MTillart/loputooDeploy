@@ -1,0 +1,83 @@
+::ng-deep.special-date {
+  background-color: var(--calendar-primary);
+  border-radius: 40px;
+}
+::ng-deep.host{
+  background-color: chartreuse;
+}
+mat-dialog {
+  background-color: var(--calendar-bg);
+}
+mat-calendar {
+  zoom: "0.25";
+}
+
+
+mat-form-field {
+  width: 100%;
+  input {
+    background-color: var(--calendar-primary);
+  }
+}
+.mat-calendar {
+    display: block;
+    color: var(--calendar-text-primary);
+  }
+.dialog_container{
+  position: relative;
+}
+  
+
+ 
+.calendar-wrapper{
+    width: 350px;
+    text-align: center;
+}
+.mat-calender-header{
+ padding: 0; 
+
+}
+::ng-deep .mat-calendar-controls{
+  margin: 5px !important;
+}
+
+
+::ng-deep .mat-focused .mat-form-field-underline {
+  display: none;
+}
+::ng-deep input {
+  caret-color: var(--calendar-text-primary);
+}
+.mat-focused .placeholder, .placeholder {
+  color: var(--calendar-text-primary)
+}
+
+.timepicker{
+  position: absolute;
+  right: 30px;
+  top: 30px
+  
+}
+
+// SCROLLBAR desgine
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--calendar-text-secondary); 
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--calendar-primary); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grid-primary); 
+}
