@@ -11,14 +11,17 @@ import { MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepicke
 
 
 import { KalenderPopUpComponent } from './kalender-pop-up.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, NgbModule,MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, 
+  imports: [
+    BrowserModule, FormsModule, NgbModule,MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, 
     MatFormFieldModule, MatRadioModule, MatSelectModule, MatSliderModule, 
     MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
     MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, ReactiveFormsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, 
+    CommonModule
 
   ],
   declarations: [KalenderPopUpComponent],

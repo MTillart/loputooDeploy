@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, 
   MatFormFieldModule, MatRadioModule, MatSelectModule, MatSliderModule, 
-  MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, 
+  MatSlideToggleModule, MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatIconModule, MatNativeDateModule, MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
@@ -59,6 +59,7 @@ import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.mo
   ],
   imports: [
     BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -86,6 +87,13 @@ import { NgbdTimepickerBasicModule } from './kalender-pop-up/timepicker-basic.mo
     HttpClientModule,
     NgbModule,
     NgbdTimepickerBasicModule
+
+  ],
+  exports: [
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatInputModule
 
   ],
   providers: [

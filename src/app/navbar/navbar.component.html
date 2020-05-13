@@ -10,7 +10,7 @@
                 <div class="ajaarvestus" routerLinkActive = "active"><a routerLink = "ajaarvestus"><h4>Ajaarvestus</h4></a></div>
                 <div class="user-panel" fxLayoutAlign="space-evenly">                  
                     <mat-slide-toggle class="toggle" color="accent" (click)= "toggleTheme()"><mat-icon color="accent">invert_colors</mat-icon></mat-slide-toggle>
-                    <mat-icon color="primary">mail</mat-icon>
+
                    <mat-icon *ngIf="auth.isLoggedIn()" (click)= "logout()">exit_to_app</mat-icon>
                 </div>
             </div>
